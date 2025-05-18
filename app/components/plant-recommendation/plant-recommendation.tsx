@@ -1,21 +1,7 @@
 import type { Plant } from '@/app/types/plant';
+import { usePlants } from './hooks';
 import { uniqueId } from 'lodash';
-import useSWR from 'swr';
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-function usePlants(zone: number) {
-  const { data, error, isLoading } = useSWR(
-    zone ? `/api/trefle-proxy?hardiness_zone=${zone}` : null,
-    fetcher
-  );
-
-  return {
-    plants: data?.data || [],
-    isLoading,
-    isError: error,
-  };
-}
+import PlantCard from './components/plant-card/plant-card';
 
 type PlantRecommendationsProps = {
   zone: number;
@@ -72,9 +58,7 @@ const PlantRecommendations = ({ zone }: PlantRecommendationsProps) => {
       {plants.length > 0 ? (
         <ul className="mt-2 space-y-2">
           {plants.map((plant: Plant) => (
-            <li key={plant.id} className="p-2 border rounded shadow-sm">
-              {plant.common_name} ({plant.scientific_name})
-            </li>
+            <PlantCard key={plant.id} plant={plant} />
           ))}
         </ul>
       ) : (
