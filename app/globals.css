@@ -1,38 +1,126 @@
 @import "tailwindcss";
 
 :root {
-  --background: #4DB6FF; /* Sky blue */
-  --foreground: #B8863B; /* Deep gold */
-  --accent-sand: #F5D6A1; /* Sandy beige */
-  --accent-green: #4A7C3A; /* Leaf green */
-  --accent-cloud: #F8F8F8; /* Cloud white */
-  --accent-water: #2A6FBB; /* Water blue */
+  /* Base Colors */
+  --sky-blue-900: oklch(0.3 0.12 240);
+  --sky-blue-800: oklch(0.4 0.12 240);
+  --sky-blue-700: oklch(0.5 0.12 240);
+  --sky-blue-600: oklch(0.6 0.12 240);
+  --sky-blue-500: oklch(0.7 0.12 240);
+  --sky-blue-400: oklch(0.8 0.12 240);
+  --sky-blue-300: oklch(0.9 0.12 240);
+  --sky-blue-200: oklch(0.95 0.12 240);
+  --sky-blue-100: oklch(0.98 0.12 240);
+
+  --deep-gold-900: oklch(0.3 0.15 80);
+  --deep-gold-800: oklch(0.4 0.15 80);
+  --deep-gold-700: oklch(0.5 0.15 80);
+  --deep-gold-600: oklch(0.6 0.15 80);  
+  --deep-gold-500: oklch(0.65 0.15 80);
+  --deep-gold-400: oklch(0.75 0.15 80);
+  --deep-gold-300: oklch(0.85 0.15 80);
+  --deep-gold-200: oklch(0.95 0.15 80);
+  --deep-gold-100: oklch(0.98 0.15 80);
+
+  --sandy-beige-900: oklch(0.3 0.08 80);
+  --sandy-beige-800: oklch(0.4 0.08 80);
+  --sandy-beige-700: oklch(0.5 0.08 80);
+  --sandy-beige-600: oklch(0.6 0.08 80);
+  --sandy-beige-500: oklch(0.7 0.08 80);
+  --sandy-beige-400: oklch(0.8 0.08 80);
+  --sandy-beige-300: oklch(0.9 0.08 80);
+  --sandy-beige-200: oklch(0.95 0.08 80);
+  --sandy-beige-100: oklch(0.98 0.08 80);
+
+  --leaf-green-900: oklch(0.3 0.15 140);
+  --leaf-green-800: oklch(0.4 0.15 140);
+  --leaf-green-700: oklch(0.5 0.15 140);
+  --leaf-green-600: oklch(0.6 0.15 140);
+  --leaf-green-500: oklch(0.6 0.15 140);
+  --leaf-green-400: oklch(0.7 0.15 140);
+  --leaf-green-300: oklch(0.8 0.15 140);
+  --leaf-green-200: oklch(0.95 0.15 140);
+  --leaf-green-100: oklch(0.98 0.15 140);
+
+  --cloud-white-900: oklch(0.3 0.015 240);
+  --cloud-white-800: oklch(0.4 0.015 240);
+  --cloud-white-700: oklch(0.5 0.015 240);
+  --cloud-white-600: oklch(0.6 0.015 240);
+  --cloud-white-500: oklch(0.7 0.015 240);
+  --cloud-white-400: oklch(0.8 0.015 240);
+  --cloud-white-300: oklch(0.9 0.015 240);
+  --cloud-white-200: oklch(0.95 0.015 240);
+  --cloud-white-100: oklch(0.98 0.015 240);
+  
+  /* Typography */
+  --font-family: 'Inter', sans-serif;
+  
+  /* Heading Styles */
+  --heading-1-size: 2.5rem;
+  --heading-1-weight: 700;
+  --heading-1-line-height: 1.5;
+  
+  --heading-2-size: 2rem;
+  --heading-2-weight: 600;
+  --heading-2-line-height: 1.5;
+  
+  --heading-3-size: 1.5rem;
+  --heading-3-weight: 600;
+  --heading-3-line-height: 1.5;
+
+  /* Body Text Styles */
+  --body-1-size: 1.125rem;
+  --body-1-weight: 400;
+  --body-1-line-height: 1.5;
+  
+  --body-2-size: 1rem;
+  --body-2-weight: 400;
+  --body-2-line-height: 1.5;
+  
+  --body-3-size: 0.875rem;
+  --body-3-weight: 400;
+  --body-3-line-height: 1.5;
+
+  /* Light Theme Colors */
+  --text-primary: var(--sky-blue-900);
+  --text-secondary: var(--sky-blue-700);
+  --bg-primary: var(--cloud-white-100);
+  --bg-secondary: var(--cloud-white-200);
+  --bg-tertiary: var(--cloud-white-300);
+  --border-primary: var(--sandy-beige-300 / 0.8);
+  --border-secondary: var(--sandy-beige-400 / 0.8);
+  --border-tertiary: var(--sky-blue-300 / 0.8);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Colors */
+  --text-primary: var(--sandy-beige-100);
+  --text-secondary: var(--sandy-beige-300);
+  --bg-primary: var(--sky-blue-900);
+  --bg-secondary: var(--sky-blue-800);  
+  --bg-tertiary: var(--sky-blue-700);
+  --border-primary: var(--sandy-beige-300 / 0.8);
+  --border-secondary: var(--sandy-beige-200 / 0.8);
+  --border-tertiary: var(--sandy-beige-100 / 0.8);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent-sand: var(--accent-sand);
-  --color-accent-green: var(--accent-green);
-  --color-accent-cloud: var(--accent-cloud);
-  --color-accent-water: var(--accent-water);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #2A6FBB; /* Water blue for dark mode */
-    --foreground: #F5D6A1; /* Sandy beige for text */
-    --accent-sand: #B8863B;
-    --accent-green: #2E4D25;
-    --accent-cloud: #171717;
-    --accent-water: #4DB6FF;
-  }
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-border-primary: var(--border-primary);
+  --color-border-secondary: var(--border-secondary);
+  --color-border-tertiary: var(--border-tertiary);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: 1.5;
 }
+
+

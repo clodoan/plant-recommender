@@ -24,6 +24,7 @@ export interface Plant {
       };
     };
   };
+  image_url: string;
 }
 
 export type PlantResponse = Plant[];
