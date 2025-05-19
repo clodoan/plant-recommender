@@ -20,10 +20,10 @@ const PlantCard = ({ plant }: PlantCardProps) => {
         />
       </div>
       <div className="flex flex-col">
-        <h1 className="text-xl font-bold leading-relaxed text-color-text-primary">
+        <h1 className="text-xl font-bold leading-relaxed text-text-primary">
           {plant.common_name}
         </h1>
-        <p className="text-body-2 text-color-text-secondary">
+        <p className="text-body-2 text-color-secondary">
           {plant.scientific_name} ({plant.scientific_name})
         </p>
       </div>
